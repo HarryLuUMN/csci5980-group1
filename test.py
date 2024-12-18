@@ -123,8 +123,8 @@ def save_test_results(metrics, model_name):
 
 def main():
     parser = argparse.ArgumentParser(description='Test histopathology classification model')
-    parser.add_argument('--model', type=str, default='vit', choices=['vit', 'resnet'],
-                      help='Model architecture to use (vit or resnet)')
+    parser.add_argument('--model', type=str, default='vit', choices=['vit', 'resnet', 'mamba'],
+                      help='Model architecture to use (vit, resnet, or mamba)')
     parser.add_argument('--data_root', type=str, default='data',
                       help='Root directory for the dataset')
     parser.add_argument('--batch_size', type=int, default=128,
