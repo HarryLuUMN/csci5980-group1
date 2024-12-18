@@ -1,5 +1,5 @@
 # Core deep learning packages
-torch>=2.0.0
+torch>=2.4.0
 torchvision>=0.15.0
 
 # Data processing and visualization
@@ -21,3 +21,12 @@ ipython>=7.0.0
 black>=22.0.0  # Code formatting
 pylint>=2.8.0  # Code linting
 mypy>=0.910  # Type checking
+
+# for vision mamba
+causal-conv1d
+mamba-ssm
+timm
+tensorboardX
+einops
+transformers
+mambavision
