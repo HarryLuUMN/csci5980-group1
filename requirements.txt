@@ -1,0 +1,23 @@
+# Core deep learning packages
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Data processing and visualization
+numpy>=1.21.0
+pandas>=1.3.0
+Pillow>=8.3.0  # For PIL.Image
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Machine learning utilities
+scikit-learn>=1.0.0
+tqdm>=4.62.0
+
+# Jupyter environment (optional, for notebook usage)
+jupyter>=1.0.0
+ipython>=7.0.0
+
+# Optional - for development and type checking
+black>=22.0.0  # Code formatting
+pylint>=2.8.0  # Code linting
+mypy>=0.910  # Type checking
