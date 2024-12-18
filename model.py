@@ -12,6 +12,7 @@ from torchvision.models import (
     ResNet50_Weights, ViT_B_16_Weights
 )
 
+from mambavision import create_model
 
 
 class ViTForHistopathology(nn.Module):
@@ -80,13 +81,50 @@ class ResNetForHistopathology(nn.Module):
         """Forward pass"""
         return self.resnet(x)
 
+class MambaVisionModel(nn.Module):
+    """
+    MambaVision model adapted for specific tasks, with a customizable classification head.
+    """
+    
+    def __init__(self, num_classes=1, model_path="/tmp/mambavision_tiny_1k.pth.tar"):
+        """
+        Initialize the MambaVision model with a custom classification head.
+        
+        Args:
+            num_classes (int): Number of output classes. Default is 1 for binary classification.
+            model_path (str): Path to the pretrained model weights.
+        """
+        super().__init__()
+        
+        # Load the pretrained MambaVision model
+        self.mamba_model = create_model('mamba_vision_T', pretrained=True, model_path=model_path)
+        
+        # Get the number of features from the existing head
+        in_features = self.mamba_model.head.in_features
+        
+        # Replace the head with a custom classification head
+        self.mamba_model.head = nn.Sequential(
+            nn.LayerNorm(in_features),
+            nn.Dropout(0.3),
+            nn.Linear(in_features, 512),
+            nn.GELU(),
+            nn.LayerNorm(512),
+            nn.Dropout(0.2),
+            nn.Linear(512, num_classes)
+        )
+
+    def forward(self, x):
+        """Forward pass through the model."""
+        return self.mamba_model(x)
+
 def get_model(model_name='vit', num_classes=2):
     """
     Factory function to create and initialize a model
     """
     model_classes = {
         'vit': ViTForHistopathology,
-        'resnet': ResNetForHistopathology
+        'resnet': ResNetForHistopathology,
+        'mamba': MambaVisionModel
     }
     
     if model_name.lower() not in model_classes:
