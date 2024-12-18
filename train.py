@@ -192,8 +192,8 @@ def train_model(model_name, train_loader, val_loader, num_epochs=10, device='cud
 
 def main():
     parser = argparse.ArgumentParser(description='Train histopathology classification model')
-    parser.add_argument('--model', type=str, default='vit', choices=['vit', 'resnet'],
-                      help='Model architecture to use (vit or resnet)')
+    parser.add_argument('--model', type=str, default='vit', choices=['vit', 'resnet', 'mamba'],
+                      help='Model architecture to use (vit or resnet or mamba)')
     parser.add_argument('--data_root', type=str, default='data',
                       help='Root directory for the dataset')
     parser.add_argument('--batch_size', type=int, default=256,  # Increased batch size
