@@ -1,4 +1,4 @@
-﻿# Vision Mamba
+# Vision Mamba
 
 Main Body: 
  - model.py: contains all three models
@@ -12,3 +12,4 @@ Drafts and Demo
 
 Vision Mamba required a Linux environment for training. 
 
+the code didn't included the model files due to the upload memory limitation of github. 
