@@ -12,4 +12,4 @@ Drafts and Demo
 
 Vision Mamba required a Linux environment for training. 
 
-the code didn't included the model files due to the upload memory limitation of github. 
+the code didn't included the model checkpoint files due to the upload memory limitation of github. 
