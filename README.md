@@ -1,5 +1,7 @@
 # Vision Mamba
 
+The Main Body part is the part in which we ran our experiments. 
+
 Main Body: 
  - model.py: contains all three models
  - test.py: testing pipeline
@@ -7,8 +9,8 @@ Main Body:
  - metricstrackers.py: metrics file
 
 Drafts and Demo
- - ViT.ipynb: explotary ViT file for demo
- - vision-mamba-for-healthcare.ipynb: explotary mamba file for demo
+ - ViT.ipynb: exploratory ViT file for demo
+ - vision-mamba-for-healthcare.ipymb: exploratory mamba file for demo
 
 Vision Mamba required a Linux environment for training. 
 
